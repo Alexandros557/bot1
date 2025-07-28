@@ -5,8 +5,9 @@ import random
     # Этот токен ты получаешь от BotFather, чтобы бот мог работать
 bot = telebot.TeleBot("7412577360:AAH_g5PGv8fu4qzEtwU8vl1NEgfI855PjOc")
 day1 = (20)
-randon1 =  ('#_#',':)',':(','*:*','@_@','!_!','*_*','^~^','^-^','^_^','#~#','&_&','@~@','&~&') 
-sam = ("Орешка","Орел")
+randon1 =  ('#_#',':)',':(','*:*','@_@','!_!','*_*','^~^','^-^','^_^','#~#','&_&','@~@','&~&','8_8','<*_*>')   
+help = ['start','hello','bye','good','day','roblox','smile','sam']
+sam = ("орел","решка")
 
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
@@ -27,7 +28,7 @@ def send_good(message):
 @bot.message_handler(commands=['day'])
 def send_day(message):
         bot.reply_to(message,  day1 + 1)  
-
+    
 @bot.message_handler(commands=['roblox'])
 def send_roblox(message):
         bot.reply_to(message,  "Roblox это самая лучшие игра!!!!")
@@ -39,12 +40,14 @@ def send_smile(message):
 
 @bot.message_handler(commands=['sam'])
 def send_sam(message):
-        bot.reply_to(message, random.choice(sam))  
+        bot.reply_to(message, random.choice(sam)) 
+
+@bot.message_handler(commands=['help'])
+def send_help(message):
+        bot.reply_to(message, random.choice(help)) 
     
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
         bot.reply_to(message, message.text)
     
 bot.polling()
-
-
